@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express from "express"; //calling on the express info package
 import fetch from "node-fetch"; //calling on the node-fetch package
 import cors from "cors"; //Import cors package
@@ -16,7 +17,7 @@ app.post("/api/chatgpt", async (req, res) => { //Create a route to handle POST r
   const prompt = `start every response with "hello Cassandra" and explain the answer to all my questions like I'm a junior programmer learning to code. Please keep responses simple and direct.`; // Prompt to start the conversation - personalized
 const userMessage = req.body.message ? req.body.message.trim() : ''; // Ensure the message is not empty
 const message = `${prompt} ${userMessage}`; // Combine the prompt and user message
-  const apiKey = "sk-proj-qjdfEVnUUjOIoLxXA1YkT3BlbkFJvZZWqBH2n7iijswi1GRk"; //My OpenAI API key
+  const apiKey = process.env.API_KEY;
   const apiUrl = "https://api.openai.com/v1/chat/completions"; //Endpoint to send the message to OpenAI (chatGPT)
 
   try {
