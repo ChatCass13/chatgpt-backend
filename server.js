@@ -1,7 +1,9 @@
-import dotenv from "dotenv";
 import express from "express"; //calling on the express info package
 import fetch from "node-fetch"; //calling on the node-fetch package
 import cors from "cors"; //Import cors package
+import { config } from 'dotenv';
+
+config(); //Configure the environment variables
 
 const app = express(); //Create an app that's an express server
 const port = 3000; //Port number
